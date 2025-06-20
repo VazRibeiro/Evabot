@@ -1,0 +1,27 @@
+# ROS2 workspace build artifacts
+/build/
+/install/
+/log/
+
+# Source packages managed by vcs
+/src/
+
+# IDE files
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
