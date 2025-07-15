@@ -2,7 +2,7 @@
 
 > See [README.md](README.md) for quick start instructions.
 
-Run `./setup.sh` to install all dependencies automatically.
+Run `./scripts/setup.sh` to install all dependencies automatically.
 
 ## Manual Installation
 

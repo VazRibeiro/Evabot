@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evabot Remote Monitor</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/robot-icon-192.png">
+    <link rel="apple-touch-icon" href="icons/robot-icon-192.png">
+    <meta name="theme-color" content="#2196F3">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Evabot">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🤖 Evabot Remote Monitor</h1>
+            <div id="connection-status" class="status disconnected">Disconnected</div>
+        </header>
+
+        <main>
+            <section class="control-panel">
+                <h2>System Control</h2>
+                <div class="controls">
+                    <button id="connect-btn" class="btn primary">Connect</button>
+                    <button id="configure-btn" class="btn secondary" disabled>Configure Gateway</button>
+                    <button id="test-btn" class="btn secondary" disabled>Test Gateway</button>
+                </div>
+            </section>
+
+            <section class="data-section">
+                <h2>Live Data</h2>
+                
+                <div class="card">
+                    <h3>CAN Messages</h3>
+                    <div id="can-messages" class="data-display">
+                        <div class="no-data">Waiting for CAN data...</div>
+                    </div>
+                    <div class="stats">
+                        <span>Messages: <span id="can-count">0</span></span>
+                        <span>Rate: <span id="can-rate">0</span> Hz</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Robot State</h3>
+                    <div id="robot-state" class="data-display">
+                        <div class="no-data">Waiting for robot state...</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Diagnostics</h3>
+                    <div id="diagnostics" class="data-display">
+                        <div class="no-data">No diagnostics data</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="logs-section">
+                <h2>Activity Log</h2>
+                <div id="activity-log" class="log-display"></div>
+                <button id="clear-log-btn" class="btn secondary small">Clear Log</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script>
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

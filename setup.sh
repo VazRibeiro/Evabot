@@ -55,9 +55,28 @@ sudo apt install -y \
     linux-headers-$(uname -r) \
     clang-format \
     gdb \
-    htop
+    htop \
+    python3-pip
 
 print_success "System dependencies installed"
+
+# Install ROS 2 packages for data bridge
+print_status "Installing ROS 2 packages..."
+sudo apt install -y \
+    ros-humble-can-msgs \
+    ros-humble-lifecycle-msgs \
+    ros-humble-diagnostic-msgs
+
+print_success "ROS 2 packages installed"
+
+# Install C++ dependencies for Protocol Buffer bridge
+print_status "Installing C++ development dependencies..."
+sudo apt install -y \
+    libwebsocketpp-dev \
+    nlohmann-json3-dev \
+    golang-go
+
+print_success "C++ and Go dependencies installed"
 
 # Check if ROS 2 Humble is installed
 if ! command -v ros2 &> /dev/null; then
