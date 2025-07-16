@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>evabot_bringup</name>
+  <version>1.0.0</version>
+  <description>Launch files for Evabot system</description>
+  <maintainer email="evabot@example.com">Evabot Team</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>lifecycle_msgs</depend>
+  <depend>can_msgs</depend>
+  <depend>can_gateway</depend>
+  <depend>data_bridge</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

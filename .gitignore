@@ -4,9 +4,7 @@
 /log/
 
 # Source packages managed by vcs
-/src/
-
-# Exception: track evabot_bringup package
+/src/*
 !src/evabot_bringup/
 
 # IDE files
