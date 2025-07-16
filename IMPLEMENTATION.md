@@ -174,3 +174,14 @@ source install/setup.bash
 - **Offline capability**: PWA works offline with service worker
 - **Scalable**: Easy to add new ROS nodes and web features
 - **Production ready**: Systemd service integration possible
+
+## Cross-references
+
+- For workspace setup, see [README.md](README.md).
+- For deployment on Jetson, see [JETSON_DEPLOYMENT.md](JETSON_DEPLOYMENT.md).
+- For dependencies, see [DEPENDENCIES.md](DEPENDENCIES.md).
+- For web interface details, see [web_interface/README.md](web_interface/README.md).
+- For ROS package documentation:
+  - [can_gateway/README.md](src/can_gateway/README.md)
+  - [data_bridge/README.md](src/data_bridge/README.md)
+  - [evabot_bringup/README.md](src/evabot_bringup/README.md)

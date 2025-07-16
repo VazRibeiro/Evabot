@@ -87,3 +87,29 @@ sudo usermod -a -G dialout $USER  # CAN permissions
 source install/setup.bash         # Package not found
 sudo systemctl status can_gateway.service  # Service issues
 ```
+
+## ROS Packages
+
+### can_gateway
+- **Description**: CAN ↔ ROS 2 bridge with SocketCAN support.
+- **Topics**:
+  - `/can/raw`: CAN frames from bus.
+  - `/can/tx`: CAN frames to bus.
+- **Parameters**:
+  - `interface`: CAN interface name (default: `vcan0`).
+  - `rx_rate_hz`: Polling rate (default: `10000`).
+
+### data_bridge
+- **Description**: High-performance C++ Protocol Buffer WebSocket bridge.
+- **Topics**:
+  - `/can/raw`: Raw CAN frames.
+  - `/diagnostics`: System diagnostic information.
+  - `/robot_state`: Robot status messages.
+
+### evabot_bringup
+- **Description**: System-wide launch files for coordinated startup.
+- **Launch Files**:
+  - `can_system.launch.py`: Primary system launch file.
+  - Parameters:
+    - `interface`: CAN interface name (default: `vcan0`).
+    - `debug`: Enable debug output (default: `false`).
